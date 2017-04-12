@@ -1,0 +1,63 @@
+{
+  "vms": [
+    {
+      "hostname": "A",
+      "loopback_ip": "fc00::1",
+      "interfaces": [
+        {
+          "mac": "01",
+          "vlan": 0,
+          "routes": [
+          ]
+        },
+        {
+          "mac": "02",
+          "vlan": 1,
+          "routes": [
+            {"prefix": "::/0", "via": "04"}
+          ]
+        }
+      ]
+    },
+    {
+      "hostname": "B",
+      "loopback_ip": "fc00::2",
+      "interfaces": [
+        {
+          "mac": "03",
+          "vlan": 0,
+          "routes": [
+            {"prefix": "fc00::1", "via": "01"}
+          ]
+        },
+        {
+          "mac": "04",
+          "vlan": 1,
+          "routes": [
+            {"prefix": "fc00::1", "via": "02"}
+          ]
+        },
+        {
+          "mac": "05",
+          "vlan": 2,
+          "routes": [
+            {"prefix": "fc00::3", "via": "06"}
+          ]
+        }
+      ]
+    },
+    {
+      "hostname": "C",
+      "loopback_ip": "fc00::3",
+      "interfaces": [
+        {
+          "mac": "06",
+          "vlan": 2,
+          "routes": [
+            {"prefix": "::/0", "via": "05"}
+          ]
+        }
+      ]
+    }
+  ]
+}
